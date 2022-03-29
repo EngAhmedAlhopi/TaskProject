@@ -18,7 +18,14 @@
         <h1>
             My Private Data:
         </h1>
-        <h2>
+        <h2>@if($name == '')
+            {{ '' }}
+            @else
+            <br>
+            name ==> {{ $name }}
+        @endif
+
+            <br>
             @foreach ($datas as $key => $data )
                 {{ $key }} ==> {{ $data }}
                 <br>

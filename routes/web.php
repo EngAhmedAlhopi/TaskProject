@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about',function(){
-    $name = 'AhmedAlhopi';
+    // $name = 'AhmedAlhopi';
+    $name = request('name');
     $age = 22;
     // $tasks = [
     //      'task 1',
@@ -27,16 +28,16 @@ Route::get('/about',function(){
     // ];
 
     $tasks = [
-        '1' => 'Task 1',
-        '2' => 'Task 2',
-        '3' => 'Task 3',
-        '4' => 'Task 4',
-        '5' => 'Task 5',
-        '6' => 'Task 6',
-        '7' => 'Task 7',
-        '8' => 'Task 8',
-        '9' => 'Task 9',
-        '10' => 'Task 10'
+        'name1' => 'Task 1',
+        'name2' => 'Task 2',
+        'name3' => 'Task 3',
+        'name4' => 'Task 4',
+        'name5' => 'Task 5',
+        'name6' => 'Task 6',
+        'name7' => 'Task 7',
+        'name8' => 'Task 8',
+        'name9' => 'Task 9',
+        'name10' => 'Task 10'
     ];
 
     // return view('about',[
@@ -57,16 +58,16 @@ Route::get('/about',function(){
 
 Route::get('/task/{id}',function($id){
     $tasks = [
-        '1' => 'Task 1',
-        '2' => 'Task 2',
-        '3' => 'Task 3',
-        '4' => 'Task 4',
-        '5' => 'Task 5',
-        '6' => 'Task 6',
-        '7' => 'Task 7',
-        '8' => 'Task 8',
-        '9' => 'Task 9',
-        '10' => 'Task 10'
+        'name1' => 'Task 1',
+        'name2' => 'Task 2',
+        'name3' => 'Task 3',
+        'name4' => 'Task 4',
+        'name5' => 'Task 5',
+        'name6' => 'Task 6',
+        'name7' => 'Task 7',
+        'name8' => 'Task 8',
+        'name9' => 'Task 9',
+        'name10' => 'Task 10'
     ];
     $task = $tasks[$id];
     return view('task',compact('task','id'));
@@ -77,6 +78,7 @@ Route::get('/contact',function(){
 });
 
 Route::get('/mydata',function(){
+    $name = '';
     $datas = [
         'name' => 'Ahmed Iyad Alhopi',
         'age' => 22,
@@ -91,12 +93,13 @@ Route::get('/mydata',function(){
         'j' => '0595421229',
         'w' => '0567441229'
     ];
-    return view('mydata',compact('datas' , 'phone'));
+    return view('mydata',compact('datas' , 'phone' , 'name'));
 });
 
 Route::post('/store',function(){
+    $name = request('fname');
     $datas = [
-        'name' => 'Ahmed Iyad Alhopi',
+        // 'name' => 'Ahmed Iyad Alhopi',
         'age' => 22,
         'major' => 'Enginering',
         // 'phone' => [
@@ -109,6 +112,12 @@ Route::post('/store',function(){
         'j' => '0595421229',
         'w' => '0567441229'
     ];
-    $name =request('name');
+    // $name = request('name');
     return view('mydata',compact('name','datas','phone'));
 });
+
+
+// Route::post('/store',function(){
+//     $fname = request('fname');
+//     return view('contact','fname');
+// });

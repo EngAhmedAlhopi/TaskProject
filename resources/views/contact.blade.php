@@ -15,5 +15,9 @@
         <h1>
             Welcom in contact page
         </h1>
+        <br>
+        <h1>
+            Hello {{ $fname }}
+        </h1>
     </body>
 </html>
