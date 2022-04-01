@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>Welcom in about view</h1>
-        <h2>{{ $name }}</h2>
-        <h2>{{ $age }}</h2>
+        {{-- <h2>{{ $name }}</h2>
+        <h2>{{ $age }}</h2> --}}
         {{-- @foreach ($tasks as $index => $task)
             <ul>
                 <li>
@@ -22,11 +22,11 @@
                 </li>
             </ul>
         @endforeach --}}
-        @foreach ($tasks as $index => $task)
+        @foreach ($tasks as /*$index =>*/ $task)
         <ul>
             <li>
-                <a href="/task/{{ $index }}">
-                    {{ $task }}
+                <a href="/task/{{ $task->name }}">
+                    {{ $task->name }}
                 </a>
             </li>
         </ul>
