@@ -22,7 +22,7 @@
                 </li>
             </ul>
         @endforeach --}}
-        @foreach ($tasks as /*$index =>*/ $task)
+        {{-- @foreach ($tasks as /*$index =>*/ $task)
         <ul>
             <li>
                 <a href="/task/{{ $task->name }}">
@@ -30,7 +30,7 @@
                 </a>
             </li>
         </ul>
-        @endforeach
+        @endforeach --}}
     </body>
 </html>
 
