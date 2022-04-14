@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class TaskController extends Controller
 {
@@ -37,4 +38,18 @@ class TaskController extends Controller
         // return 'Store';
     }
 
+    public function destroy(Request $request){
+        DB::table('tasks')->where('id', '=', $request->id)->delete();
+        return redirect()->to('/tasks');
+    }
+
+    public function displaydata(Request $request){
+        $task = DB::table('tasks')->find($request->id);
+        return view('displaydata',compact('task'));
+    }
+
+    public function update(Request $request){
+        DB::table('tasks')->where('id', $request->id)->updateOrInsert(['id' => $request->id,'name' => $request->name, 'description' => $request->description,'updated_at' => now()]);
+        return redirect()->to('displaydata');
+    }
 }

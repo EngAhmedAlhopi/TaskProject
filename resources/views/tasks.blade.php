@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Tasks
+@endsection
 @section('content')
 <div class="col-sm-offset-2 col-sm-8">
     <div class="panel panel-default">
@@ -50,9 +53,18 @@
 
                             <!-- Task Delete Button -->
                             <td>
-                                <form action="destroy" method="POST">
+                                <form action="destroy/{{$task->id}}" method="POST">
+                                    @csrf
                                     <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-btn fa-trash"></i>Delete
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="displaydata/{{$task->id}}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-info">
+                                        <i class="fa fa-btn fa-info"></i>Update
                                     </button>
                                 </form>
                             </td>
