@@ -50,7 +50,7 @@
 
                             <!-- Task Delete Button -->
                             <td>
-                                <form action="#" method="POST">
+                                <form action="destroy" method="POST">
                                     <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-btn fa-trash"></i>Delete
                                     </button>

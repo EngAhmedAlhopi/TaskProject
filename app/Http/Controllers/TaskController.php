@@ -17,10 +17,21 @@ class TaskController extends Controller
 
     }
 
-    public function store(){
-        $name = $_POST['name'];
+    // public function store(){
+    //     $name = $_POST['name'];
+    //     DB::table('tasks')->insert([
+    //         'name' => $name
+    //     ]);
+    //     return redirect()->to('/tasks');
+    //     // return 'Store';
+    // }
+
+    public function store(Request $reguest){
+        // $name = $_POST['name'];
         DB::table('tasks')->insert([
-            'name' => $name
+            'name' => $reguest->name,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         return redirect()->to('/tasks');
         // return 'Store';

@@ -28,9 +28,11 @@ Route::get('/show', function () {
     return view('show');
 });
 
-Route::get('/tasks',[TaskController::class,'index'])->name('index');
+Route::get('tasks',[TaskController::class,'index'])->name('index');
 
-Route::post('store/',[TaskController::class,'store'])->name('store');
+Route::post('store',[TaskController::class,'store'])->name('store');
+
+Route::post('destroy',[TaskController::class,'destroy'])->name('destroy');
 
 Route::get('/app', function () {
     return view('layouts.app');
