@@ -24,9 +24,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/show', function () {
-    return view('show');
-});
+Route::get('/show/{id}',[TaskController::class,'show'])->name('show');
 
 Route::get('tasks',[TaskController::class,'index'])->name('index');
 
@@ -34,10 +32,10 @@ Route::post('store',[TaskController::class,'store'])->name('store');
 
 Route::post('destroy/{id}',[TaskController::class,'destroy'])->name('destroy');
 
-Route::post('displaydata/{id}',[TaskController::class,'displaydata'])->name('displaydata');
+Route::post('updatedata/{id}',[TaskController::class,'updatedata'])->name('updatedata');
 
 Route::put('update/{id}',[TaskController::class,'update'])->name('update');
 
-Route::get('/app', function () {
-    return view('layouts.app');
-});
+// Route::get('/app', function () {
+//     return view('layouts.app');
+// });

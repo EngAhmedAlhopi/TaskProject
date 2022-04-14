@@ -1,31 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{ $name ?? 'non'}}</title>
-    </head>
+@extends('layouts.app')
+@section('content')
     <style>
-        body{
-            text-align: center;
+        h2{
+            margin-bottom: 15px;
+        }
+        h4{
+            margin-left: 70px;
+        }
+        span{
+            color: blue;
         }
     </style>
-    <body>
-        {{-- <h1>
-            {{ $id }}<=====>{{ $task }}
-        </h1>
-        <h2>
-            Welcom in task #{{ $id }}
-        </h2> --}}<h2>
-        Id:{{ $tasks->id }}
-        <br>
-        Name:{{ $tasks->name }} {{ $tasks->nothernaem }}
-        <br>
-        Date:{{ $tasks->created_at }}
-        <br>
-        Updeate:{{ $tasks->updated_at }}
-        <br>
-        </h2>
-    </body>
-</html>
+    <h2>
+        Task Data
+    </h2>
+    <h4>
+        <span>Task ID: </span>{{ $task->id }}
+    </h4>
+    <h4>
+        <span>Task Name: </span>{{ $task->name }}
+    </h4>
+    <h4>
+        <span>Task Description: </span>{{ $task->description }}
+    </h4>
+    <h4>
+        <span>Date Created: </span>{{ $task->created_at }}
+    </h4>
+    <h4>
+        <span>Last Modified Date: </span>{{ $task->updated_at }}
+    </h4>
+@endsection

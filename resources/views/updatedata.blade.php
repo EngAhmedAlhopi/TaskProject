@@ -5,11 +5,11 @@
 @section('content')
 <style>
     input{
-        border: none;
+        border: solid .5px rgb(75, 75, 110);
     }
     textarea{
         resize: none;
-        border: none;
+        border: solid .5px rgb(75, 75, 110);
     }
     form{
         font-size: large;
@@ -18,6 +18,7 @@
         font-size: x-large;
     }
 </style>
+{{-- @if (isset($task)) --}}
 <table class="table">
     <thead>
         <tr>
@@ -47,7 +48,7 @@
         </tbody>
     </form>
     @endisset --}}
-    @if (isset($task))
+
     <form action="{{ route('update',[$task->id]) }}" method="POST">
         @method('PUT')
         <tbody>
@@ -65,8 +66,8 @@
             </tr>
         </tbody>
     </form>
-    @else
-        <label for="">Updted Don.</label>
-    @endif
+    {{-- @else --}}
+        {{-- <label>Updated Successfully.</label> --}}
+    {{-- @endif --}}
 </table>
 @endsection
