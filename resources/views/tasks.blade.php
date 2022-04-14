@@ -70,7 +70,7 @@
 
                             <!-- Task Update Button -->
                             <td>
-                                <form action="displaydata/{{$task->id}}" method="POST">
+                                <form action="updatedata/{{$task->id}}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-success">
                                         {{-- <i class="fa fa-btn fa-info"></i> --}}
