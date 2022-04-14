@@ -49,7 +49,8 @@ class TaskController extends Controller
     }
 
     public function update(Request $request){
-        DB::table('tasks')->where('id', $request->id)->updateOrInsert(['id' => $request->id,'name' => $request->name, 'description' => $request->description,'updated_at' => now()]);
-        return redirect()->to('displaydata');
+        DB::table('tasks')->where('id', $request->id)->update(['name' => $request->name, 'description' => $request->description,'updated_at' => now()]);
+        // return 'Updated Don.';
+        return view('displaydata');
     }
 }

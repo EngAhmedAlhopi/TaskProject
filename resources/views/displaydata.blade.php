@@ -14,6 +14,9 @@
     form{
         font-size: large;
     }
+    label{
+        font-size: x-large;
+    }
 </style>
 <table class="table">
     <thead>
@@ -25,11 +28,12 @@
             <th scope="col">Updated At</th>
         </tr>
     </thead>
-    <form action="update" method="POST">
-
+    {{-- @isset($task)
+    <form action="{{ route('update',[$task->id]) }}" method="POST">
+        @method('PUT')
         <tbody>
             <tr>
-                <th scope="row">@csrf<input type="text" value="{{ $task->id }}" disabled></th>
+                <th scope="row">{{ $task->id }} </th>
                 <td>@csrf<input type="text" name="name" value="{{ $task->name }}"></td>
                 <td>@csrf<textarea name="description" rows="4" cols="50">{{ $task->description }}</textarea></td>
                 <td>{{ $task->created_at }}</td>
@@ -42,6 +46,27 @@
             </tr>
         </tbody>
     </form>
-
+    @endisset --}}
+    @if (isset($task))
+    <form action="{{ route('update',[$task->id]) }}" method="POST">
+        @method('PUT')
+        <tbody>
+            <tr>
+                <th scope="row">{{ $task->id }} </th>
+                <td>@csrf<input type="text" name="name" value="{{ $task->name }}"></td>
+                <td>@csrf<textarea name="description" rows="4" cols="50">{{ $task->description }}</textarea></td>
+                <td>{{ $task->created_at }}</td>
+                <td>{{ $task->updated_at }}</td>
+                <td>
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+            </td>
+            </tr>
+        </tbody>
+    </form>
+    @else
+        <label for="">Updted Don.</label>
+    @endif
 </table>
 @endsection

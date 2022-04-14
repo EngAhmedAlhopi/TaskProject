@@ -36,7 +36,7 @@ Route::post('destroy/{id}',[TaskController::class,'destroy'])->name('destroy');
 
 Route::post('displaydata/{id}',[TaskController::class,'displaydata'])->name('displaydata');
 
-Route::post('update',[TaskController::class,'update'])->name('update');
+Route::put('update/{id}',[TaskController::class,'update'])->name('update');
 
 Route::get('/app', function () {
     return view('layouts.app');
