@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Task Data
+@endsection
 @section('content')
     <style>
         h2{

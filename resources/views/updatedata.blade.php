@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Task Data
+    Update Task Data
 @endsection
 @section('content')
 <style>

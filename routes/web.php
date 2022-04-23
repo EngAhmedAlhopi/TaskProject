@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
 Route::get('/show/{id}',[TaskController::class,'show'])->name('show');
 
 Route::get('tasks',[TaskController::class,'index'])->name('index');
